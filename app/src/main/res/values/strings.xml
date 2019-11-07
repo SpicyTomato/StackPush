@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">JavaDataStrcutrueExperiment_2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="button_init">初始化</string>
+    <string name="button_clear">清空</string>
+    <string name="button_push">入栈</string>
+    <string name="button_pop">出栈</string>
+    <string name="button_print">打印</string>
+
+    <string name="editText_hint">请输入入栈内容</string>
+    <string name="button_back">返回</string>
+    <string name="button_commit">提交</string>
+</resources>
