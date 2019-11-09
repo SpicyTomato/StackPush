@@ -4,6 +4,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="textView_welcome">02，Ich liebe dich!</string>
+    <string name="button_stack">Stack</string>
+    <string name="button_queue">Queue</string>
+
+    <string name="button_common">普通</string>
+    <string name="button_calculation">困难</string>
+
     <string name="button_init">初始化</string>
     <string name="button_clear">清空</string>
     <string name="button_push">入栈</string>
@@ -13,4 +20,7 @@
     <string name="editText_hint">请输入入栈内容</string>
     <string name="button_back">返回</string>
     <string name="button_commit">提交</string>
+
+    <string name="button_calculate">计算</string>
+    <string name="editText_calculate">请输入需要计算的式子</string>
 </resources>

@@ -12,5 +12,3 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
-
-/Users/spicytomato/AndroidStudioProjects/JavaDataStrcutrueExperiment_2/app

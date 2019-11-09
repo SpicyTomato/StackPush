@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.spicytomato.javadatastrcutrueexperiment_2.MyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".StackSelectFragment">
+
+        <Button
+            android:id="@+id/buttonCommon"
+            android:layout_width="134dp"
+            android:layout_height="88dp"
+            android:text="@string/button_common"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCalculaion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonCalculaion"
+            android:layout_width="134dp"
+            android:layout_height="88dp"
+            android:text="@string/button_calculation"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCommon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

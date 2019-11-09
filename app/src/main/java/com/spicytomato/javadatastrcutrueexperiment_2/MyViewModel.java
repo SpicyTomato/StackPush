@@ -15,9 +15,9 @@ public class MyViewModel extends AndroidViewModel {
 
     public MyViewModel(@NonNull Application application,SavedStateHandle handle) {
         super(application);
-        if(handle.contains(STACK_HEAD)){
-            handle.set(STACK_HEAD,new Stack<>());
-        }
+//        if(!handle.contains(STACK_HEAD)){
+//            handle.set(STACK_HEAD,new Stack<String>());
+//        }
         this.handle = handle;
     }
 

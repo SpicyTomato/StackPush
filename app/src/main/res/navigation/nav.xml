@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -22,5 +22,35 @@
         <action
             android:id="@+id/action_pushFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculationFragment"
+        android:name="com.spicytomato.javadatastrcutrueexperiment_2.CalculationFragment"
+        android:label="fragment_calculation"
+        tools:layout="@layout/fragment_calculation" >
+        <action
+            android:id="@+id/action_calculationFragment_to_stackSelectFragment2"
+            app:destination="@id/stackSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stackSelectFragment"
+        android:name="com.spicytomato.javadatastrcutrueexperiment_2.StackSelectFragment"
+        android:label="fragment_stack_select"
+        tools:layout="@layout/fragment_stack_select" >
+        <action
+            android:id="@+id/action_stackSelectFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_stackSelectFragment_to_calculationFragment"
+            app:destination="@id/calculationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.spicytomato.javadatastrcutrueexperiment_2.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_stackSelectFragment"
+            app:destination="@id/stackSelectFragment" />
     </fragment>
 </navigation>

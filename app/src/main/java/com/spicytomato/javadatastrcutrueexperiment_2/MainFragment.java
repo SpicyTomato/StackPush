@@ -34,31 +34,35 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //eturn inflater.inflate(R.layout.fragment_main, container, false);
+        //return inflater.inflate(R.layout.fragment_main, container, false);
 
         final MyViewModel myViewModel;
         myViewModel =ViewModelProviders.of(requireActivity(),new SavedStateVMFactory(requireActivity())).get(MyViewModel.class);
 
         final FragmentMainBinding binding;
-        binding = DataBindingUtil.inflate(inflater,R.id.mainFragment,container,false);
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_main,container,false);
         binding.setData(myViewModel);
         binding.setLifecycleOwner(requireActivity());
 
         binding.buttonInit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myViewModel.getStackHead().setValue(new Stack());
-                binding.textViewHint.setText("初始化成功");
+                if(myViewModel.getStackHead().getValue() == null) {
+                    myViewModel.getStackHead().setValue(new Stack<String>());
+                    binding.textViewHint.setText("初始化成功");
+                }else{
+                    binding.textViewHint.setText("已经存在一个栈了");
+                }
             }
         });
 
         binding.buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(myViewModel.getStackHead().getValue().head != null){
-                    myViewModel.getStackHead().getValue().head.next = null;
+                if(myViewModel.getStackHead().getValue() !=null && !myViewModel.getStackHead().getValue().isEmpty()){
+                    myViewModel.getStackHead().getValue().StackClear();
                     binding.textViewHint.setText("清空成功");
-                }else{
+                }else if (myViewModel.getStackHead().getValue() == null){
                     binding.textViewHint.setText("请初始化一个栈");
                 }
             }
@@ -67,8 +71,12 @@ public class MainFragment extends Fragment {
         binding.buttonPush.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavController controller = Navigation.findNavController(v);
-                controller.navigate(R.id.action_mainFragment_to_pushFragment);
+                if(myViewModel.getStackHead().getValue() != null) {
+                    NavController controller = Navigation.findNavController(v);
+                    controller.navigate(R.id.action_mainFragment_to_pushFragment);
+                }else{
+                    binding.textViewHint.setText("请初始化一个栈");
+                }
 
             }
         });
@@ -76,10 +84,12 @@ public class MainFragment extends Fragment {
         binding.buttonPop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!myViewModel.getStackHead().getValue().isEmpty()) {
-                    binding.textViewHint.setText("出栈成功 出栈值为" + myViewModel.getStackHead().getValue().StackPop());
+                if (myViewModel.getStackHead().getValue() != null && !myViewModel.getStackHead().getValue().isEmpty()) {
+                    binding.textViewHint.setText("出栈成功 出栈值为: " + myViewModel.getStackHead().getValue().StackPop());
+                }else if (myViewModel.getStackHead().getValue() == null){
+                    binding.textViewHint.setText("请初始化一个栈");
                 }else{
-                    binding.textViewHint.setText("栈已经为空");
+                    binding.textViewHint.setText("栈为空");
                 }
             }
         });
@@ -87,7 +97,13 @@ public class MainFragment extends Fragment {
         binding.buttonPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.textViewPrint.setText(myViewModel.getStackHead().getValue().toString());
+                if(myViewModel.getStackHead().getValue() != null && !myViewModel.getStackHead().getValue().isEmpty()){
+                    binding.textViewPrint.setText(myViewModel.getStackHead().getValue().toString());
+                }else if(myViewModel.getStackHead().getValue() == null){
+                    binding.textViewPrint.setText("请初始化一个栈");
+                }else {
+                    binding.textViewHint.setText("栈为空");
+                }
             }
         });
 

@@ -1,7 +1,7 @@
 package com.spicytomato.javadatastrcutrueexperiment_2;
 
 public class Stack<T> {
-    public Node<T> head = null;
+    public Node<T> head;
 
     public Stack(){
         head = new Node<T>();
@@ -19,7 +19,7 @@ public class Stack<T> {
     }
 
     public void StackPush(T data){
-        head.next = new Node<>(data,head.next.next);
+        head.next = new Node<>(data,head.next);
     }
 
     public T StackPop() {
@@ -48,7 +48,7 @@ public class Stack<T> {
     @Override
     public String toString() {
         Node<T> p = head.next;
-        String s = null;
+        String s = "";
         while (p != null){
             s += p.data + " ";
             p = p.next;

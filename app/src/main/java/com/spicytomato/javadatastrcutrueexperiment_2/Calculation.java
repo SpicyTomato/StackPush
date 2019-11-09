@@ -1,7 +1,7 @@
 package com.spicytomato.javadatastrcutrueexperiment_2;
 
 public class Calculation extends Stack {
-    public static StringBuffer toPostfix(String infix){
+    public StringBuffer toPostfix(String infix){
         Stack<String> stack = new Stack<>();
         StringBuffer postfix = new StringBuffer(infix.length() * 2);
         int i = 0;
@@ -50,7 +50,7 @@ public class Calculation extends Stack {
         return postfix;
     }
 
-    public static int toValue(StringBuffer postfix){
+    public int toValue(StringBuffer postfix){
         Stack<Integer> stack = new Stack<Integer>();
         int value = 0;
         for(int i = 0; i < postfix.length() ;i++){
